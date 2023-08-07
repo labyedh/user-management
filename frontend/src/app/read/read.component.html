@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <div *ngIf="succesMsg" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{succesMsg}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">login</th>
+        <th scope="col">password</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usr of readUsers">
+        <th scope="row">{{usr.id}}</th>
+        <td>{{usr.login}}</td>
+        <td>{{usr.password}}</td>
+        <td style="text-align: center;"><button class="btn btn-danger" (click)="deleteId(usr.id)">Delete</button>
+        <td style="text-align: center;"> <a [routerLink]="['/create',usr.id]" class="btn btn-success">Update</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
